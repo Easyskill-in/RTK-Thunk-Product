@@ -38,7 +38,8 @@ const ProductSlice = createSlice({
         }).addCase(FetchProduct.fulfilled, (state, action) => {
             state.loading = false;
             console.log("From Thunk : ", state, action)
-            state.item.push(...action.payload)
+            // state.item.push(...action.payload)
+            state.item = action.payload;
         }).addCase(FetchProduct.rejected, (state, action) => {
             state.error = action.payload
         })
@@ -48,4 +49,5 @@ const ProductSlice = createSlice({
 
 export { FetchProduct }
 export const { add, remove, reset } = ProductSlice.actions
+
 export default ProductSlice.reducer
